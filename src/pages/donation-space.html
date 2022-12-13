@@ -19,7 +19,7 @@
               <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <span class="fs-4"><b>Espaço para doar <3</b></span>
               </a>
-              <button type="button" class="btn btn-danger" id="finishDonation" onclick="finishDonation()">
+              <button type="button" class="btn btn-danger" id="finishDonation" onclick="finishAndExitDonation()">
                 Encerrar Doações
               </button>   
             </header>
@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="mt-3">
-                <input type="number" class="form-control" id="value" placeholder="Valor">
+                <input type="number" class="form-control" id="valueDonation" placeholder="Valor">
               </div>
             <div class="col col-12 mt-3 d-flex flex-row-reverse">
                 <button type="button" class="btn btn-success" id="finishDonation" onclick="makeDonation()">

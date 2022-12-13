@@ -1,6 +1,5 @@
-
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x7DE553e814580491C62Cc3DD8BE092aedd7A71Bc";
+var contractAddress = "0x1d575DD1b04Fbb7584110FAad856525a75DAa3d5";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -83,8 +82,7 @@ function createDonation() {
           from: DApp.account
       }
   ).then(() => {
-    var myModal = new bootstrap.Modal(document.getElementById('createDonation'))
-    myModal.hide();
+    $('#createDonation').modal('hide');
     updateInterface();
   });
 }
@@ -98,6 +96,7 @@ function updateInterface() {
       document.getElementById("donationsTable").style.display = "none";
     } else {
       document.getElementById("emptyDonations").style.display = "none";
+      document.getElementById("bodyDonationTable").innerHTML = "";
       donations.forEach(donation => {
         let tr = document.createElement("tr");
         let td1 = document.createElement("td");

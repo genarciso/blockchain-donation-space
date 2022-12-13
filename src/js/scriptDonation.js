@@ -1,5 +1,5 @@
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x7DE553e814580491C62Cc3DD8BE092aedd7A71Bc";
+var contractAddress = "0x1d575DD1b04Fbb7584110FAad856525a75DAa3d5";
 
 var donationIdSelected = sessionStorage.getItem("donationId");
 // Inicializa o objeto DApp
@@ -65,7 +65,6 @@ function getDonation(donationId) {
 }
 
 function isOwner(donationId) {
-    console.log('teste');
   return DApp.contracts.DonationSpace.methods.isOwner(donationId).call({ from: DApp.account }).then((isOwner) => {
     if(isOwner) {
         document.getElementById("finishDonation").style.display = "block";
@@ -124,16 +123,15 @@ function updateInterface() {
 }
 
 function finishAndExitDonation() {
-
-    return finishDonation().then(() => {
-        sessionStorage.clear();
-        location.replace("/");
-    });
+  return finishDonation().then(() => {
+      sessionStorage.clear();
+      location.replace("../../index.html");
+  });
 }
 
 function makeDonation() {
-    return doDonatation().then(() => {
-        document.getElementById("valueDonation").value = ""
-        updateInterface();
-    })
+  return doDonatation().then(() => {
+      document.getElementById("valueDonation").value = "";
+      updateInterface();
+  });
 }
