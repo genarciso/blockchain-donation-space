@@ -1,6 +1,6 @@
 
 // ENDEREÇO EHTEREUM DO CONTRATO
-var contractAddress = "0x3E1B1562390135E594E45Bad97B9805FA6876Bf2";
+var contractAddress = "0x7DE553e814580491C62Cc3DD8BE092aedd7A71Bc";
 
 // Inicializa o objeto DApp
 document.addEventListener("DOMContentLoaded", onDocumentLoad);
@@ -59,18 +59,10 @@ const DApp = {
 
 
 // *** MÉTODOS (de consulta - view) DO CONTRATO ** //
-
-function getDonation(donationId) {
-  return DApp.contracts.DonationSpace.methods.getDonation(donationId).call({ from: DApp.account });
-}
-
 function getAllDonations() {
   return DApp.contracts.DonationSpace.methods.getAllDonations().call();
 }
 
-function isOwner(donationId) {
-  return DApp.contracts.DonationSpace.methods.isOwner(donationId).call({ from: DApp.account });
-}
 
 // *** MÉTODOS (de escrita) DO CONTRATO ** //
 function createDonation() {
@@ -96,11 +88,7 @@ function createDonation() {
     updateInterface();
   });
 }
-function comprarRifa() {
-  let quant = document.getElementById("quantidade").value;
-  let preco = 1000000000000000 * quant;
-  return DApp.contracts.Rifa.methods.comprarRifa(quant).send({ from: DApp.account, value: preco }).then(atualizaInterface);;
-}
+
 
 // *** ATUALIZAÇÃO DO HTML *** //
 function updateInterface() {
@@ -119,14 +107,17 @@ function updateInterface() {
         let td3 = document.createElement("td");  
         td3.innerHTML = donation["goal"];
         let td4 = document.createElement("td");  
-        td4.innerHTML = donation["user"]["name"];
-        let td5 = document.createElement("td");
-        td5.innerHTML = `<button type='button' class='btn btn-primary' onclick='makeDonation(${donation["id"]})'>Doar</button>`;
+        td4.innerHTML = donation["collected"]/1000000000000000000;
+        let td5 = document.createElement("td");  
+        td5.innerHTML = donation["user"]["name"];
+        let td6 = document.createElement("td");
+        td6.innerHTML = `<button type='button' class='btn btn-success' onclick='makeDonation(${donation["id"]})'>Doar</button>`;
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
         tr.appendChild(td4);
         tr.appendChild(td5);
+        tr.appendChild(td6);
         document.getElementById("bodyDonationTable").appendChild(tr);
       });
     }
