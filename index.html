@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open Sans:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link
+      href="src/css/stylesIndex.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Donations Space</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+              <a href="src/pages/donation-space.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">   
+                <span class="fs-4"><b>Espaço para criar a doação <3</b></span>
+              </a>
+              <ul class="nav nav-pills">
+                <li class="nav-item">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createDonation">
+                    Criar Doação
+                  </button>          
+                </li>
+              </ul>
+            </header>
+        </div>
+        <br>
+        <div class="row justify-content-center" id="allDonations">
+            <div class="col col-4" id="emptyDonations">
+                <span>Nenhuma campanha de doação criada </span>
+            </div>
+            <div class="col col-12" id="donationsTable">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Objetivo</th>
+                        <th scope="col">Criador</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody id="bodyDonationTable">
+                      
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="createDonation" tabindex="-1" aria-labelledby="createDonation" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createDonationTitle">Criar campanha de doação</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+  
+            <!-- Form -->
+            <div class="modal-body">
+              <div class="mb-3">
+                <input type="text" class="form-control" id="title" placeholder="Título">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" id="description" placeholder="Descrição">
+              </div>
+              <div class="mb-3">
+                <input type="number" class="form-control" id="goal" placeholder="Meta">
+              </div>
+              <div class="mb-3">
+                <input type="text" class="form-control" id="userName" placeholder="Nome do autor">
+              </div>
+            </div>
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-light" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success" id="btn-success" onclick="createDonation()">Criar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.0/web3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="src/js/abi.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+</html>
