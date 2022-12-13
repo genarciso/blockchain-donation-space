@@ -135,3 +135,7 @@ function makeDonation() {
       updateInterface();
   });
 }
+
+function redirectToHome() {
+  return location.replace("../../index.html");
+}
